@@ -66,7 +66,7 @@ export default function Home() {
                 </a>
             </div>
             <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96">
-              <Image src={avatar} layout="fill" objectFit="cover" />
+              <Image src={avatar} alt="" layout="fill" objectFit="cover" />
             </div>
           </div>
         </section>
@@ -74,12 +74,8 @@ export default function Home() {
           <div>
             <h3 className="text-3xl py-1 dark:text-white ">Bio</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-
-              Welcome! I'm Brandon, a passionate grad student currently attending the <span className="text-yellow-500"> Georgia Institute of Technology </span> for <span className="text-teal-500"> computer science </span>. Having served multiple internships and worked as a teaching assistant for multiple courses, I've garnered skills valuable for the tech industry!
-              
-
-
-Connect with me on LinkedIn or check out my projects on GitHub.
+              Welcome! I&apos;m Brandon, a passionate grad student currently attending the <span className="text-yellow-500"> Georgia Institute of Technology </span> for <span className="text-teal-500"> computer science </span>. Having served multiple internships and worked as a teaching assistant for multiple courses, I've garnered skills valuable for the tech industry!
+              Connect with me on LinkedIn or check out my projects on GitHub.
             </p>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
               I offer a wide range of knowledge from various technologies and frameworks!
@@ -87,7 +83,7 @@ Connect with me on LinkedIn or check out my projects on GitHub.
           </div>
           <div className="lg:flex gap-10">
             <div className="text-center shadow-lg p-10 rounded-xl my-10  dark:bg-white flex-1">
-              <Image src={languages} width={100} height={100} />
+              <Image src={languages} alt="" width={100} height={100} />
               <h3 className="text-lg font-medium pt-8 pb-2  ">
                 Languages
               </h3>
@@ -104,7 +100,7 @@ Connect with me on LinkedIn or check out my projects on GitHub.
               <p className="text-gray-800 py-1">SQL</p>
             </div>
             <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
-              <Image src={frameworks} width={100} height={100} />
+              <Image src={frameworks} alt="" width={100} height={100} />
               <h3 className="text-lg font-medium pt-8 pb-2 ">
                 Frameworks
               </h3>
@@ -121,7 +117,7 @@ Connect with me on LinkedIn or check out my projects on GitHub.
               <p className="text-gray-800 py-1">MySQL</p>
             </div>
             <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
-              <Image src={tools} width={100} height={100} />
+              <Image src={tools} alt="" width={100} height={100} />
               <h3 className="text-lg font-medium pt-8 pb-2 ">
                 Developer Tools
               </h3>
@@ -157,6 +153,7 @@ Connect with me on LinkedIn or check out my projects on GitHub.
                   height={"100%"}
                   layout="responsive"
                   src={NeuroMosaic2}
+                  alt=""
                 />
               </div>
             </a>
@@ -169,6 +166,7 @@ Connect with me on LinkedIn or check out my projects on GitHub.
                   height={"100%"}
                   layout="responsive"
                   src={ChirpChat1}
+                  alt=""
                 />
               </div>
             </a>
