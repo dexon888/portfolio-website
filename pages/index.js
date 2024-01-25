@@ -55,7 +55,7 @@ export default function Home() {
               Software Developer
             </h3>
             <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-xl">
-              Hi, I'm a full stack developer looking for full-time roles! Welcome to my portfolio!
+              Hi, I&apos;m a full stack developer looking for full-time roles! Welcome to my portfolio!
             </p>
             <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-400">
                 <a href="https://www.linkedin.com/in/brandon-ding-b965221b1/" target="_blank" rel="noopener noreferrer" className="levitate">
@@ -74,7 +74,7 @@ export default function Home() {
           <div>
             <h3 className="text-3xl py-1 dark:text-white ">Bio</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              Welcome! I&apos;m Brandon, a passionate grad student currently attending the <span className="text-yellow-500"> Georgia Institute of Technology </span> for <span className="text-teal-500"> computer science </span>. Having served multiple internships and worked as a teaching assistant for multiple courses, I've garnered skills valuable for the tech industry!
+              Welcome! I&apos;m Brandon, a passionate grad student currently attending the <span className="text-yellow-500"> Georgia Institute of Technology </span> for <span className="text-teal-500"> computer science </span>. Having served multiple internships and worked as a teaching assistant for multiple courses, I&apos;ve garnered skills valuable for the tech industry!
               Connect with me on LinkedIn or check out my projects on GitHub.
             </p>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
@@ -139,7 +139,7 @@ export default function Home() {
           <div>
             <h3 className="text-3xl py-1 dark:text-white ">Portofolio</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              Since the beginning of my journey as a software developer, I've worked on multiple
+              Since the beginning of my journey as a software developer, I&apos;ve worked on multiple
               <span className="text-teal-500"> projects. </span>
               Feel free to take a look at any of them here! 
             </p>
