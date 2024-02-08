@@ -91,7 +91,7 @@ export default function Home() {
                 Proficient in a diverse array of programming languages
               </p>
               <h4 className="py-4 text-teal-600">Languages I Use</h4>
-              <p className="text-gray-800 py-1">Java/Java Swing</p>
+              <p className="text-gray-800 py-1">Java</p>
               <p className="text-gray-800 py-1">Python</p>
               <p className="text-gray-800 py-1">C/C++</p>
               <p className="text-gray-800 py-1">C#</p>
@@ -131,9 +131,10 @@ export default function Home() {
               <p className="text-gray-800 py-1">AWS</p>
               <p className="text-gray-800 py-1">Microsoft Azure</p>
               <p className="text-gray-800 py-1">Google Firebase</p>
+              <p className="text-gray-800 py-1">Oracle Database</p>
               <p className="text-gray-800 py-1">Docker</p>
               <p className="text-gray-800 py-1">OpenAI</p>
-              <p className="text-gray-800 py-1">Eclipse/Debugging</p>
+              <p className="text-gray-800 py-1">Eclipse/Debugger</p>
             </div>
             
           </div>
