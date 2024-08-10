@@ -15,12 +15,12 @@ import ChirpChat1 from "../public/ChirpChatImage1.png";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import emailjs from 'emailjs-com';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    // Set the initial theme based on localStorage
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme === "dark") {
       setDarkMode(true);
@@ -46,7 +46,6 @@ export default function Home() {
     },
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
-      // EmailJS configuration
       const serviceID = 'service_s8mdv82';
       const templateID = 'template_4ohnqk7';
       const userID = '_e7xgfLNmbI76dDy4'; 
@@ -143,7 +142,10 @@ export default function Home() {
             </p>
           </div>
           <div className="lg:flex gap-10">
-            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
+            <motion.div 
+              className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
+              whileHover={{ scale: 1.1 }}
+            >
               <Image src={languages} alt="" width={100} height={100} />
               <h3 className="text-lg font-medium pt-8 pb-2">Languages</h3>
               <p className="py-2">Proficient in a diverse array of programming languages</p>
@@ -155,8 +157,11 @@ export default function Home() {
               <p className="text-gray-800 py-1">Javascript</p>
               <p className="text-gray-800 py-1">HTML/CSS</p>
               <p className="text-gray-800 py-1">SQL</p>
-            </div>
-            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
+            </motion.div>
+            <motion.div 
+              className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
+              whileHover={{ scale: 1.1 }}
+            >
               <Image src={frameworks} alt="" width={100} height={100} />
               <h3 className="text-lg font-medium pt-8 pb-2">Frameworks</h3>
               <p className="py-2">Experienced in leveraging modern frameworks to build dynamic and responsive web applications</p>
@@ -169,8 +174,11 @@ export default function Home() {
               <p className="text-gray-800 py-1">MongoDB</p>
               <p className="text-gray-800 py-1">MySQL</p>
               <p className="text-gray-800 py-1">JUnits</p>
-            </div>
-            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
+            </motion.div>
+            <motion.div 
+              className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
+              whileHover={{ scale: 1.1 }}
+            >
               <Image src={tools} alt="" width={100} height={100} />
               <h3 className="text-lg font-medium pt-8 pb-2">Developer Tools</h3>
               <p className="py-2">Skilled in utilizing a wide range of developer tools</p>
@@ -183,7 +191,7 @@ export default function Home() {
               <p className="text-gray-800 py-1">Docker</p>
               <p className="text-gray-800 py-1">OpenAI</p>
               <p className="text-gray-800 py-1">Eclipse/Debugger</p>
-            </div>
+            </motion.div>
           </div>
         </section>
         <section className="py-10">
