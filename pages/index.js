@@ -3,8 +3,8 @@ import {
   AiFillLinkedin,
   AiFillGithub,
 } from "react-icons/ai";
-import { BsFillSunFill } from "react-icons/bs";
-import { useState } from "react";
+import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
+import { useState, useEffect } from "react";
 import avatar from "../public/avatar.jpg";
 import frameworks from "../public/frameworks.png";
 import languages from "../public/languages.png";
@@ -18,6 +18,19 @@ import emailjs from 'emailjs-com';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Set the initial theme based on localStorage
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "dark") {
+      setDarkMode(true);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+    localStorage.setItem("theme", !darkMode ? "dark" : "light");
+  };
 
   const validationSchema = Yup.object({
     name: Yup.string().required('Name is required'),
@@ -71,10 +84,17 @@ export default function Home() {
             <h1 className="font-burtons text-xl">developed by</h1>
             <ul className="flex items-center">
               <li>
-                <BsFillSunFill
-                  onClick={() => setDarkMode(!darkMode)}
-                  className="cursor-pointer text-2xl"
-                />
+                {darkMode ? (
+                  <BsFillSunFill
+                    onClick={toggleTheme}
+                    className="cursor-pointer text-2xl"
+                  />
+                ) : (
+                  <BsFillMoonFill
+                    onClick={toggleTheme}
+                    className="cursor-pointer text-2xl"
+                  />
+                )}
               </li>
               <li>
                 <a
