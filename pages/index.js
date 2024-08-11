@@ -3,13 +3,13 @@ import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import avatar from "../public/avatar.jpg";
-import frameworks from "../public/frameworks.png";
-import languages from "../public/languages.png";
-import tools from "../public/tools.png";
 import Image from "next/image";
 import NeuroMosaic2 from "../public/NeuroMosaicImage2.png";
 import ChirpChat1 from "../public/ChirpChatImage1.png";
 import PokemonChess1 from "../public/PokemonChessImage1.png";
+import frameworks from "../public/frameworks.png";
+import languages from "../public/languages.png";
+import tools from "../public/tools.png";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import emailjs from "emailjs-com";
@@ -18,23 +18,78 @@ import { motion } from "framer-motion";
 const projects = [
   {
     title: "NeuroMosaic",
-    description: "An AI-based project with custom autocomplete notebooks and AI-generated art.",
+    description: "An AI-based project to analyze and generate art.",
     image: NeuroMosaic2,
     link: "https://github.com/dexon888/AI-Notion",
   },
   {
     title: "ChirpChat",
-    description: "A real-time chat application.",
+    description: "A real-time chat application with unique features.",
     image: ChirpChat1,
     link: "https://github.com/dexon888/Chatot-Chat-Application",
   },
   {
     title: "Pokemon Chess",
-    description: "A fun chess game with Pokemon-inspired gameplay.",
+    description: "A fun chess game with Pokemon sprites.",
     image: PokemonChess1,
     link: "https://github.com/dexon888/Pokemon-Chess",
   },
 ];
+
+const skills = {
+  Languages: [
+    "Java",
+    "Python",
+    "C# .Net",
+    "JavaScript",
+    "HTML/CSS",
+    "LateX",
+    "SQL",
+    "TypeScript",
+    "Bash",
+    "Powershell",
+    "Julia",
+  ],
+  Frameworks: [
+    "Express",
+    "MongoDB",
+    "React",
+    "Node.js",
+    "Bootstrap Developer Tools",
+    "JUnits",
+    "Django",
+    "Spring Boot",
+    "Flask",
+    "Next.js",
+    "FastAPI",
+  ],
+  Libraries: [
+    "pandas",
+    "NumPy",
+    "Matplotlib",
+    "OpenCV",
+    "PyTorch",
+    "Tensorflow",
+    "Scikit-learn",
+    "Redux",
+    "jQuery",
+    "D3.js",
+  ],
+  Technologies: [
+    "AWS",
+    "Microsoft Azure",
+    "Docker",
+    "Linux",
+    "Networking",
+    "Google Firebase",
+    "Google Cloud",
+    "Git",
+    "Eclipse",
+    "CI/CD",
+  ],
+  "APIs and Protocols": ["REST", "GraphQL"],
+  Tools: ["Visual Studio Code", "Jira", "Postman", "Figma"],
+};
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -166,50 +221,36 @@ export default function Home() {
               whileHover={{ scale: 1.1 }}
             >
               <Image src={languages} alt="Languages" width={100} height={100} />
-              <h3 className="text-lg font-medium pt-8 pb-2">Languages</h3>
-              <p className="py-2">Proficient in a diverse array of programming languages</p>
-              <h4 className="py-4 text-teal-600">Languages I Use</h4>
-              <p className="text-gray-800 py-1">Java</p>
-              <p className="text-gray-800 py-1">Python</p>
-              <p className="text-gray-800 py-1">C/C++</p>
-              <p className="text-gray-800 py-1">C#</p>
-              <p className="text-gray-800 py-1">Javascript</p>
-              <p className="text-gray-800 py-1">HTML/CSS</p>
-              <p className="text-gray-800 py-1">SQL</p>
+              <h3 className="text-lg font-medium pt-8 pb-2">Languages & Tools</h3>
+              <ul className="py-2">
+                {skills.Languages.concat(skills.Tools).map((skill, index) => (
+                  <li key={index} className="text-gray-800 py-1 dark:text-gray-600">{skill}</li>
+                ))}
+              </ul>
             </motion.div>
             <motion.div 
               className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
               whileHover={{ scale: 1.1 }}
             >
               <Image src={frameworks} alt="Frameworks" width={100} height={100} />
-              <h3 className="text-lg font-medium pt-8 pb-2">Frameworks</h3>
-              <p className="py-2">Experienced in leveraging modern frameworks to build dynamic and responsive web applications</p>
-              <h4 className="py-4 text-teal-600">Frameworks I Use</h4>
-              <p className="text-gray-800 py-1">React</p>
-              <p className="text-gray-800 py-1">Node.js</p>
-              <p className="text-gray-800 py-1">Express</p>
-              <p className="text-gray-800 py-1">Tensorflow</p>
-              <p className="text-gray-800 py-1">Springboot Java</p>
-              <p className="text-gray-800 py-1">MongoDB</p>
-              <p className="text-gray-800 py-1">MySQL</p>
-              <p className="text-gray-800 py-1">JUnits</p>
+              <h3 className="text-lg font-medium pt-8 pb-2">Frameworks & Libraries</h3>
+              <ul className="py-2">
+                {skills.Frameworks.concat(skills.Libraries).map((skill, index) => (
+                  <li key={index} className="text-gray-800 py-1 dark:text-gray-600">{skill}</li>
+                ))}
+              </ul>
             </motion.div>
             <motion.div 
               className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
               whileHover={{ scale: 1.1 }}
             >
-              <Image src={tools} alt="Developer Tools" width={100} height={100} />
-              <h3 className="text-lg font-medium pt-8 pb-2">Developer Tools</h3>
-              <p className="py-2">Skilled in utilizing a wide range of developer tools</p>
-              <h4 className="py-4 text-teal-600">Developer Tools I Use</h4>
-              <p className="text-gray-800 py-1">Github</p>
-              <p className="text-gray-800 py-1">AWS</p>
-              <p className="text-gray-800 py-1">Microsoft Azure</p>
-              <p className="text-gray-800 py-1">Google Firebase</p>
-              <p className="text-gray-800 py-1">Oracle Database</p>
-              <p className="text-gray-800 py-1">Docker</p>
-              <p className="text-gray-800 py-1">OpenAI</p>
-              <p className="text-gray-800 py-1">Eclipse/Debugger</p>
+              <Image src={tools} alt="Technologies & APIs" width={100} height={100} />
+              <h3 className="text-lg font-medium pt-8 pb-2">Technologies & APIs</h3>
+              <ul className="py-2">
+                {skills.Technologies.concat(skills["APIs and Protocols"]).map((skill, index) => (
+                  <li key={index} className="text-gray-800 py-1 dark:text-gray-600">{skill}</li>
+                ))}
+              </ul>
             </motion.div>
           </div>
         </section>
