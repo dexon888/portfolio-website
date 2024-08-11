@@ -153,25 +153,45 @@ export default function Home() {
       </Head>
       <main className="bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40">
         <section className="min-h-screen">
-          <nav className="py-10 mb-12 flex justify-between dark:text-white">
-            <h1 className="font-burtons text-xl">developed by</h1>
-            <ul className="flex items-center">
+          <nav className="py-10 mb-12 flex justify-between items-center dark:text-white">
+            <h1 className="font-burtons text-xl">DEVELOPED BY</h1>
+            <ul className="flex items-center space-x-4">
+              <li>
+                <a href="#bio" className="hover:text-teal-500 dark:hover:text-teal-300">
+                  Bio
+                </a>
+              </li>
+              <li>
+                <a href="#skills" className="hover:text-teal-500 dark:hover:text-teal-300">
+                  Skills
+                </a>
+              </li>
+              <li>
+                <a href="#portfolio" className="hover:text-teal-500 dark:hover:text-teal-300">
+                  Portfolio
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="hover:text-teal-500 dark:hover:text-teal-300">
+                  Contact
+                </a>
+              </li>
               <li>
                 {darkMode ? (
                   <BsFillSunFill
                     onClick={toggleTheme}
-                    className="cursor-pointer text-2xl"
+                    className="cursor-pointer text-2xl hover:text-yellow-500"
                   />
                 ) : (
                   <BsFillMoonFill
                     onClick={toggleTheme}
-                    className="cursor-pointer text-2xl"
+                    className="cursor-pointer text-2xl hover:text-blue-500"
                   />
                 )}
               </li>
               <li>
                 <a
-                  className="bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 border-none rounded-md ml-8 levitate"
+                  className="bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 border-none rounded-md ml-8 hover:shadow-lg"
                   href="https://docs.google.com/document/d/1Zx2Vl-wT2s_GotkDOx5A56h9dilaWyWcbTndP5t96Ok/edit?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -204,17 +224,19 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section>
+        <section id="bio">
           <div>
             <h3 className="text-3xl py-1 dark:text-white">Bio</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              Welcome! I&apos;m Brandon, a passionate grad student currently attending the <span className="text-yellow-500"> Georgia Institute of Technology </span> for <span className="text-teal-500"> computer science </span>. Having served multiple internships and worked as a teaching assistant for multiple courses, I&apos;ve garnered skills valuable for the tech industry!
-              Connect with me on LinkedIn or check out my projects on GitHub.
+              Hello! I&apos;m Brandon, a computer science graduate from the <span className="text-yellow-500">Georgia Institute of Technology</span>. My academic journey and professional experiences, including multiple internships and roles as a teaching assistant, have equipped me with valuable skills in software development and problem-solving. I thrive on tackling complex challenges and enjoy collaborating with others to bring ideas to life. Feel free to connect with me on LinkedIn to discuss opportunities, or check out my projects on GitHub to see what I&apos;ve been working on.
             </p>
+
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
               I offer a wide range of knowledge from various technologies and frameworks!
             </p>
           </div>
+        </section>
+        <section id="skills" className="pt-10">
           <div className="lg:flex gap-10">
             <motion.div 
               className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
@@ -254,7 +276,7 @@ export default function Home() {
             </motion.div>
           </div>
         </section>
-        <section className="py-10">
+        <section id="portfolio" className="py-10">
           <div>
             <h3 className="text-3xl py-1 dark:text-white">Portfolio</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
