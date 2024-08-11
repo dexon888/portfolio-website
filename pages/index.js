@@ -1,8 +1,5 @@
 import Head from "next/head";
-import {
-  AiFillLinkedin,
-  AiFillGithub,
-} from "react-icons/ai";
+import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import avatar from "../public/avatar.jpg";
@@ -12,10 +9,32 @@ import tools from "../public/tools.png";
 import Image from "next/image";
 import NeuroMosaic2 from "../public/NeuroMosaicImage2.png";
 import ChirpChat1 from "../public/ChirpChatImage1.png";
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import emailjs from 'emailjs-com';
-import { motion } from 'framer-motion';
+import PokemonChess1 from "../public/PokemonChessImage1.png";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import emailjs from "emailjs-com";
+import { motion } from "framer-motion";
+
+const projects = [
+  {
+    title: "NeuroMosaic",
+    description: "An AI-based project with custom autocomplete notebooks and AI-generated art.",
+    image: NeuroMosaic2,
+    link: "https://github.com/dexon888/AI-Notion",
+  },
+  {
+    title: "ChirpChat",
+    description: "A real-time chat application.",
+    image: ChirpChat1,
+    link: "https://github.com/dexon888/Chatot-Chat-Application",
+  },
+  {
+    title: "Pokemon Chess",
+    description: "A fun chess game with Pokemon-inspired gameplay.",
+    image: PokemonChess1,
+    link: "https://github.com/dexon888/Pokemon-Chess",
+  },
+];
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -48,7 +67,7 @@ export default function Home() {
     onSubmit: async (values, { resetForm }) => {
       const serviceID = 'service_s8mdv82';
       const templateID = 'template_4ohnqk7';
-      const userID = '_e7xgfLNmbI76dDy4'; 
+      const userID = '_e7xgfLNmbI76dDy4';
 
       try {
         await emailjs.send(
@@ -119,14 +138,14 @@ export default function Home() {
             </p>
             <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-400">
               <a href="https://www.linkedin.com/in/brandon-ding-b965221b1/" target="_blank" rel="noopener noreferrer" className="levitate">
-                <AiFillLinkedin />
+                <AiFillLinkedin aria-label="LinkedIn" />
               </a>
               <a href="https://github.com/dexon888" target="_blank" rel="noopener noreferrer" className="levitate">
-                <AiFillGithub />
+                <AiFillGithub aria-label="GitHub" />
               </a>
             </div>
             <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96">
-              <Image src={avatar} alt="" layout="fill" objectFit="cover" />
+              <Image src={avatar} alt="Avatar" layout="fill" objectFit="cover" />
             </div>
           </div>
         </section>
@@ -146,7 +165,7 @@ export default function Home() {
               className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
               whileHover={{ scale: 1.1 }}
             >
-              <Image src={languages} alt="" width={100} height={100} />
+              <Image src={languages} alt="Languages" width={100} height={100} />
               <h3 className="text-lg font-medium pt-8 pb-2">Languages</h3>
               <p className="py-2">Proficient in a diverse array of programming languages</p>
               <h4 className="py-4 text-teal-600">Languages I Use</h4>
@@ -162,7 +181,7 @@ export default function Home() {
               className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
               whileHover={{ scale: 1.1 }}
             >
-              <Image src={frameworks} alt="" width={100} height={100} />
+              <Image src={frameworks} alt="Frameworks" width={100} height={100} />
               <h3 className="text-lg font-medium pt-8 pb-2">Frameworks</h3>
               <p className="py-2">Experienced in leveraging modern frameworks to build dynamic and responsive web applications</p>
               <h4 className="py-4 text-teal-600">Frameworks I Use</h4>
@@ -179,7 +198,7 @@ export default function Home() {
               className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
               whileHover={{ scale: 1.1 }}
             >
-              <Image src={tools} alt="" width={100} height={100} />
+              <Image src={tools} alt="Developer Tools" width={100} height={100} />
               <h3 className="text-lg font-medium pt-8 pb-2">Developer Tools</h3>
               <p className="py-2">Skilled in utilizing a wide range of developer tools</p>
               <h4 className="py-4 text-teal-600">Developer Tools I Use</h4>
@@ -203,31 +222,23 @@ export default function Home() {
               Feel free to take a look at any of them here! 
             </p>
           </div>
-          <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
-            <a href="https://github.com/dexon888/AI-Notion" target="_blank" rel="noopener noreferrer" className="basis-1/3 flex-1 levitate">
-              <div>
-                <Image
-                  className="rounded-lg object-cover"
-                  width={"100%"}
-                  height={"100%"}
-                  layout="responsive"
-                  src={NeuroMosaic2}
-                  alt=""
-                />
-              </div>
-            </a>
-            <a href="https://github.com/dexon888/Chatot-Chat-Application" target="_blank" rel="noopener noreferrer" className="basis-1/3 flex-1 levitate">
-              <div>
-                <Image
-                  className="rounded-lg object-cover"
-                  width={"100%"}
-                  height={"100%"}
-                  layout="responsive"
-                  src={ChirpChat1}
-                  alt=""
-                />
-              </div>
-            </a>
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 py-10">
+            {projects.map((project, index) => (
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center levitate" key={index}>
+                <div className="w-full h-64 relative overflow-hidden">
+                  <Image
+                    className="rounded-lg object-cover"
+                    layout="fill"
+                    src={project.image}
+                    alt={project.title}
+                  />
+                </div>
+                <div className="mt-4 text-center">
+                  <h4 className="text-xl font-semibold dark:text-white">{project.title}</h4>
+                  <p className="text-md text-gray-800 dark:text-gray-200">{project.description}</p>
+                </div>
+              </a>
+            ))}
           </div>
         </section>
         <section id="contact" className="py-10">
