@@ -7,6 +7,7 @@ import Image from "next/image";
 import NeuroMosaic2 from "../public/NeuroMosaicImage2.png";
 import ChirpChat1 from "../public/ChirpChatImage1.png";
 import PokemonChess1 from "../public/PokemonChessImage1.png";
+import AlgoVisualizer1 from "../public/AlgoVisualizerImage1.png"
 import frameworks from "../public/frameworks.png";
 import languages from "../public/languages.png";
 import tools from "../public/tools.png";
@@ -18,7 +19,7 @@ import { motion } from "framer-motion";
 const projects = [
   {
     title: "NeuroMosaic",
-    description: "An AI-based project to analyze and generate art.",
+    description: "An AI-powered projects of autocomplete notebooks and art.",
     image: NeuroMosaic2,
     link: "https://github.com/dexon888/AI-Notion",
   },
@@ -33,6 +34,12 @@ const projects = [
     description: "A fun chess game with Pokemon sprites.",
     image: PokemonChess1,
     link: "https://github.com/dexon888/Pokemon-Chess",
+  },
+  {
+    title: "Algo-Visualizer",
+    description: "A tool to visualize various algorithms",
+    image: AlgoVisualizer1,
+    link: "https://github.com/dexon888/Algo-Visualizer",
   },
 ];
 
