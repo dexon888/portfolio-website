@@ -1,45 +1,51 @@
+import React from 'react';
 import Head from "next/head";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import { useState, useEffect } from "react";
-import avatar from "../public/avatar.jpg";
 import Image from "next/image";
-import NeuroMosaic2 from "../public/NeuroMosaicImage2.png";
-import ChirpChat1 from "../public/ChirpChatImage1.png";
-import PokemonChess1 from "../public/PokemonChessImage1.png";
-import AlgoVisualizer1 from "../public/AlgoVisualizerImage1.png"
-import frameworks from "../public/frameworks.png";
-import languages from "../public/languages.png";
-import tools from "../public/tools.png";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
 
+import avatar from "../public/avatar.jpg";
+import NeuroMosaic2 from "../public/NeuroMosaicImage2.png";
+import ChirpChat1 from "../public/ChirpChatImage1.png";
+import PokemonChess1 from "../public/PokemonChessImage1.png";
+import AlgoVisualizer1 from "../public/AlgoVisualizerImage1.png";
+import frameworks from "../public/frameworks.png";
+import languages from "../public/languages.png";
+import tools from "../public/tools.png";
+
 const projects = [
   {
     title: "NeuroMosaic",
-    description: "An AI-powered projects of autocomplete notebooks and art.",
+    description: "An AI-powered project for autocomplete notebooks and art.",
     image: NeuroMosaic2,
-    link: "https://github.com/dexon888/AI-Notion",
+    deployedLink: "https://ai-notion-ochre.vercel.app/", 
+    repoLink: "https://github.com/dexon888/AI-Notion",
   },
   {
     title: "ChirpChat",
     description: "A real-time chat application with unique features.",
     image: ChirpChat1,
-    link: "https://github.com/dexon888/Chatot-Chat-Application",
+    deployedLink: "https://chatot-chat-application.vercel.app/", 
+    repoLink: "https://github.com/dexon888/Chatot-Chat-Application",
   },
   {
     title: "Pokemon Chess",
     description: "A fun chess game with Pokemon sprites.",
     image: PokemonChess1,
-    link: "https://github.com/dexon888/Pokemon-Chess",
+    deployedLink: "https://pokemon-chess-1.onrender.com",
+    repoLink: "https://github.com/dexon888/Pokemon-Chess",
   },
   {
     title: "Algo-Visualizer",
-    description: "A tool to visualize various algorithms",
+    description: "A tool to visualize various algorithms.",
     image: AlgoVisualizer1,
-    link: "https://github.com/dexon888/Algo-Visualizer",
+    deployedLink: "https://algo-visualizer-sigma.vercel.app/", 
+    repoLink: "https://github.com/dexon888/Algo-Visualizer",
   },
 ];
 
@@ -219,11 +225,11 @@ export default function Home() {
               Hi, I&apos;m a full stack developer looking for full-time roles! Welcome to my portfolio!
             </p>
             <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-400">
-              <a href="https://www.linkedin.com/in/brandon-ding-b965221b1/" target="_blank" rel="noopener noreferrer" className="levitate">
-                <AiFillLinkedin aria-label="LinkedIn" />
+              <a href="https://www.linkedin.com/in/brandon-ding-b965221b1/" target="_blank" rel="noopener noreferrer" className="levitate" aria-label="LinkedIn">
+                <AiFillLinkedin />
               </a>
-              <a href="https://github.com/dexon888" target="_blank" rel="noopener noreferrer" className="levitate">
-                <AiFillGithub aria-label="GitHub" />
+              <a href="https://github.com/dexon888" target="_blank" rel="noopener noreferrer" className="levitate" aria-label="GitHub">
+                <AiFillGithub />
               </a>
             </div>
             <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96">
@@ -237,7 +243,6 @@ export default function Home() {
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
               Hello! I&apos;m Brandon, a computer science graduate from the <span className="text-yellow-500">Georgia Institute of Technology</span>. My academic journey and professional experiences, including multiple internships and roles as a teaching assistant, have equipped me with valuable skills in software development and problem-solving. I thrive on tackling complex challenges and enjoy collaborating with others to bring ideas to life. Feel free to connect with me on LinkedIn to discuss opportunities, or check out my projects on GitHub to see what I&apos;ve been working on.
             </p>
-
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
               I offer a wide range of knowledge from various technologies and frameworks!
             </p>
@@ -294,7 +299,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 py-10">
             {projects.map((project, index) => (
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center levitate" key={index}>
+              <div key={index} className="flex flex-col items-center levitate">
                 <div className="w-full h-64 relative overflow-hidden">
                   <Image
                     className="rounded-lg object-cover"
@@ -306,8 +311,26 @@ export default function Home() {
                 <div className="mt-4 text-center">
                   <h4 className="text-xl font-semibold dark:text-white">{project.title}</h4>
                   <p className="text-md text-gray-800 dark:text-gray-200">{project.description}</p>
+                  <div className="flex justify-center gap-4 mt-2">
+                    <a
+                      href={project.deployedLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition"
+                    >
+                      View Project
+                    </a>
+                    <a
+                      href={project.repoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition"
+                    >
+                      GitHub Repo
+                    </a>
+                  </div>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </section>
@@ -387,3 +410,9 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+
+
+
