@@ -214,7 +214,12 @@ export default function Home() {
               </li>
             </ul>
           </nav>
-          <div className="text-center p-10 py-10">
+          <motion.div 
+            className="text-center p-10 py-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <h2 className="text-5xl py-2 text-teal-600 font-medium dark:text-teal-400 md:text-6xl">
               Brandon Ding
             </h2>
@@ -235,9 +240,15 @@ export default function Home() {
             <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96">
               <Image src={avatar} alt="Avatar" layout="fill" objectFit="cover" />
             </div>
-          </div>
+          </motion.div>
         </section>
-        <section id="bio">
+        <motion.section 
+          id="bio"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ amount: 0.2 }}
+        >
           <div>
             <h3 className="text-3xl py-1 dark:text-white">Bio</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
@@ -247,8 +258,15 @@ export default function Home() {
               I offer a wide range of knowledge from various technologies and frameworks!
             </p>
           </div>
-        </section>
-        <section id="skills" className="pt-10">
+        </motion.section>
+        <motion.section 
+          id="skills" 
+          className="pt-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ amount: 0.2 }}
+        >
           <div className="lg:flex gap-10">
             <motion.div 
               className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
@@ -287,8 +305,15 @@ export default function Home() {
               </ul>
             </motion.div>
           </div>
-        </section>
-        <section id="portfolio" className="py-10">
+        </motion.section>
+        <motion.section 
+          id="portfolio" 
+          className="py-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ amount: 0.2 }}
+        >
           <div>
             <h3 className="text-3xl py-1 dark:text-white">Portfolio</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
@@ -299,7 +324,15 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 py-10">
             {projects.map((project, index) => (
-              <div key={index} className="flex flex-col items-center levitate">
+              <motion.div 
+                key={index} 
+                className="flex flex-col items-center levitate"
+                whileHover={{ scale: 1.05 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ amount: 0.2 }}
+              >
                 <div className="w-full h-64 relative overflow-hidden">
                   <Image
                     className="rounded-lg object-cover"
@@ -330,11 +363,18 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </section>
-        <section id="contact" className="py-10">
+        </motion.section>
+        <motion.section 
+          id="contact" 
+          className="py-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ amount: 0.2 }}
+        >
           <div>
             <h3 className="text-3xl py-1 dark:text-white">Contact Me</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
@@ -405,14 +445,8 @@ export default function Home() {
               </button>
             </div>
           </form>
-        </section>
+        </motion.section>
       </main>
     </div>
   );
 }
-
-
-
-
-
-
