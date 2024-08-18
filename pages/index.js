@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from "next/head";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -14,7 +13,7 @@ import NeuroMosaic2 from "../public/NeuroMosaicImage2.png";
 import ChirpChat1 from "../public/ChirpChatImage1.png";
 import PokemonChess1 from "../public/PokemonChessImage1.png";
 import AlgoVisualizer1 from "../public/AlgoVisualizerImage1.png";
-import ReviewHub1 from "../public/ReviewHubImage1.png"
+import ReviewHub1 from "../public/ReviewHubImage1.png";
 import frameworks from "../public/frameworks.png";
 import languages from "../public/languages.png";
 import tools from "../public/tools.png";
@@ -26,6 +25,12 @@ const projects = [
     image: NeuroMosaic2,
     deployedLink: "https://ai-notion-ochre.vercel.app/", 
     repoLink: "https://github.com/dexon888/AI-Notion",
+    detailedDescription: "This project leverages AI to provide autocomplete suggestions for creative notebooks and art.",
+    points: [
+      "Developed an AI-enhanced note-taking application using Next.js with features such as note creation, editing, and organization.",
+      "Integrated OpenAI's GPT-3.5 API for intelligent text completion and automatic generation of descriptive thumbnails, enhancing user interaction and content creation.",
+      "Implemented a debounced auto-save feature in a real-time editor, reducing server load by 30% and improving user experience through efficient performance."
+    ]
   },
   {
     title: "ChirpChat",
@@ -33,6 +38,12 @@ const projects = [
     image: ChirpChat1,
     deployedLink: "https://chatot-chat-application.vercel.app/", 
     repoLink: "https://github.com/dexon888/Chatot-Chat-Application",
+    detailedDescription: "ChirpChat is a real-time chat application built with modern web technologies.",
+    points: [
+      "Engineered a real-time chat application using WebSocket technology for seamless bi-directional communication, enabling instant messaging and online presence detection for users.",
+      "Maintained a scalable MongoDB database, efficiently handling thousands of chat messages and user data, ensuring data integrity and high performance.",
+      "Crafted a RESTful API with Express.js, managing various endpoints for user authentication, message retrieval, and file uploads."
+    ]
   },
   {
     title: "Pokemon Chess",
@@ -40,6 +51,14 @@ const projects = [
     image: PokemonChess1,
     deployedLink: "https://pokemon-chess-1.onrender.com",
     repoLink: "https://github.com/dexon888/Pokemon-Chess",
+    detailedDescription: "Pokemon Chess brings the strategic game of chess together with Pokemon characters.",
+    points: [
+      "Developed a Pokémon-themed chess game using React for the front end and Node.js for the back end, incorporating type effectiveness mechanics to enhance strategic gameplay.",
+      "Implemented real-time multiplayer functionality with Socket.io, enabling seamless interaction for 50+ concurrent users.",
+      "Optimized game state management with MongoDB, reducing data retrieval times by 50% and ensuring efficient and scalable performance.",
+      "Utilized Express.js for building robust API endpoints and Redux for managing complex state transitions within the game.",
+      "Deployed the application on Heroku for continuous integration and GitHub for version control and collaboration.",
+    ]
   },
   {
     title: "Algo-Visualizer",
@@ -47,6 +66,11 @@ const projects = [
     image: AlgoVisualizer1,
     deployedLink: "https://algo-visualizer-sigma.vercel.app/", 
     repoLink: "https://github.com/dexon888/Algo-Visualizer",
+    detailedDescription: "Algo-Visualizer helps to understand algorithms through visual representation.",
+    points: [
+      "Developed an interactive web application using React and Node.js to visualize sorting, pathfinding, and string matching algorithms",
+      "Utilized Cypress for integration testing, ensuring robust functionality and a seamless user experience across different use cases and environments.",
+    ]
   },
   {
     title: "SciOly Review Hub",
@@ -54,6 +78,12 @@ const projects = [
     image: ReviewHub1,
     deployedLink: "https://sci-oly-review-hub.vercel.app/",
     repoLink: "https://github.com/dexon888/SciOly-Review-Hub",
+    detailedDescription: "SciOly Review Hub provides AI-generated quizzes for Science Olympiad preparation.",
+    points: [
+      "Built a full-stack web application for Science Olympiad quiz preparation, leveraging Angular for the frontend and FastAPI for the backend, resulting in a dynamic and interactive study platform used by high school students.",
+      "Developed an AI-powered quiz generation feature using OpenAI's GPT-3.5, enabling real-time generation of customized quizzes with multiple-choice and short-answer questions, enhancing the study experience for users.",
+      "Implemented a similarity-based grading system for short-answer questions, increasing the accuracy of automated grading and providing detailed feedback to students."
+    ]
   }
 ];
 
@@ -115,6 +145,7 @@ const skills = {
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+  const [visibleTooltips, setVisibleTooltips] = useState({});
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
@@ -126,6 +157,20 @@ export default function Home() {
   const toggleTheme = () => {
     setDarkMode(!darkMode);
     localStorage.setItem("theme", !darkMode ? "dark" : "light");
+  };
+
+  const handleMouseEnter = (index) => {
+    setVisibleTooltips((prevState) => ({
+      ...prevState,
+      [index]: true,
+    }));
+  };
+
+  const handleMouseLeave = (index) => {
+    setVisibleTooltips((prevState) => ({
+      ...prevState,
+      [index]: false,
+    }));
   };
 
   const validationSchema = Yup.object({
@@ -335,7 +380,9 @@ export default function Home() {
             {projects.map((project, index) => (
               <motion.div 
                 key={index} 
-                className="flex flex-col items-center levitate"
+                className="relative flex flex-col items-center levitate"
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={() => handleMouseLeave(index)}
                 whileHover={{ scale: 1.05 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -349,6 +396,28 @@ export default function Home() {
                     src={project.image}
                     alt={project.title}
                   />
+                  {visibleTooltips[index] && (
+                    <div
+                      className="absolute z-50 p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-w-sm transition-opacity duration-300"
+                      style={{
+                        top: '50%',  // Position tooltip in the middle vertically
+                        left: '50%',  // Center the tooltip horizontally
+                        transform: 'translate(-50%, -50%)',  // Translate to center both horizontally and vertically
+                        width: '350px',  // Increase width to allow more space
+                        maxWidth: '90%',  // Ensure it doesn't overflow on small screens
+                        pointerEvents: 'none',  // Ensures the tooltip doesn't interfere with mouse events
+                      }}
+                    >
+                      <ul
+                        className="list-disc list-inside dark:text-gray-300"
+                        style={{ fontSize: '10px' }}
+                      >
+                        {project.points.map((point, pointIndex) => (
+                          <li key={pointIndex}>{point}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
                 <div className="mt-4 text-center">
                   <h4 className="text-xl font-semibold dark:text-white">{project.title}</h4>
