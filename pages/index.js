@@ -14,6 +14,7 @@ import NeuroMosaic2 from "../public/NeuroMosaicImage2.png";
 import ChirpChat1 from "../public/ChirpChatImage1.png";
 import PokemonChess1 from "../public/PokemonChessImage1.png";
 import AlgoVisualizer1 from "../public/AlgoVisualizerImage1.png";
+import ReviewHub1 from "../public/ReviewHubImage1.png"
 import frameworks from "../public/frameworks.png";
 import languages from "../public/languages.png";
 import tools from "../public/tools.png";
@@ -47,6 +48,13 @@ const projects = [
     deployedLink: "https://algo-visualizer-sigma.vercel.app/", 
     repoLink: "https://github.com/dexon888/Algo-Visualizer",
   },
+  {
+    title: "SciOly Review Hub",
+    description: "An AI-powered review assistant for various events in Science Olympiad",
+    image: ReviewHub1,
+    deployedLink: "https://sci-oly-review-hub.vercel.app/",
+    repoLink: "https://github.com/dexon888/SciOly-Review-Hub",
+  }
 ];
 
 const skills = {
@@ -67,6 +75,7 @@ const skills = {
     "Express",
     "MongoDB",
     "React",
+    "Angular",
     "Node.js",
     "Bootstrap Developer Tools",
     "JUnits",
