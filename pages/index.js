@@ -14,6 +14,7 @@ import ChirpChat1 from "../public/ChirpChatImage1.png";
 import PokemonChess1 from "../public/PokemonChessImage1.png";
 import AlgoVisualizer1 from "../public/AlgoVisualizerImage1.png";
 import ReviewHub1 from "../public/ReviewHubImage1.png";
+import Ocular1 from "../public/OcularImage1.png"
 import frameworks from "../public/frameworks.png";
 import languages from "../public/languages.png";
 import tools from "../public/tools.png";
@@ -57,7 +58,7 @@ const projects = [
       "Implemented real-time multiplayer functionality with Socket.io, enabling seamless interaction for 50+ concurrent users.",
       "Optimized game state management with MongoDB, reducing data retrieval times by 50% and ensuring efficient and scalable performance.",
       "Utilized Express.js for building robust API endpoints and Redux for managing complex state transitions within the game.",
-      "Deployed the application on Heroku for continuous integration and GitHub for version control and collaboration.",
+      "Deployed the application on Vercel for continuous integration and GitHub for version control and collaboration.",
     ]
   },
   {
@@ -84,6 +85,20 @@ const projects = [
       "Developed an AI-powered quiz generation feature using OpenAI's GPT-3.5, enabling real-time generation of customized quizzes with multiple-choice and short-answer questions, enhancing the study experience for users.",
       "Implemented a similarity-based grading system for short-answer questions, increasing the accuracy of automated grading and providing detailed feedback to students."
     ]
+  },
+  {
+    title: "Ocular Disease Image Classifier",
+    description: "A machine learning project focused on the diagnosis of ocular diseases using retinal images.",
+    image: Ocular1,
+    deployedLink: "https://colab.research.google.com/drive/1PHEuBA8Z1Wm8TZed8NtwOyxJErHPJFnE?usp=sharing",
+    repoLink: "https://colab.research.google.com/drive/1PHEuBA8Z1Wm8TZed8NtwOyxJErHPJFnE?usp=sharing",
+    detailedDescription: "This project applies both unsupervised and supervised learning techniques to classify ocular diseases from retinal images. The process includes image preprocessing, PCA for feature reduction, and model training using K-Means and CNN architectures like ResNet50 and Xception.",
+    points: [
+    "Performed image preprocessing, including flipping and grayscaling, to standardize retinal images for analysis.",
+    "Utilized Principal Component Analysis (PCA) to reduce image dimensionality, retaining 95% of variance with 31 components.",
+    "Implemented K-Means clustering to differentiate between healthy and diseased eyes, achieving up to 60% accuracy.",
+    "Developed supervised learning models using CNN architectures like ResNet50 and Xception, reaching over 50% accuracy with improved hyperparameter tuning and data augmentation."
+  ]
   }
 ];
 
