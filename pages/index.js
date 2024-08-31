@@ -15,6 +15,7 @@ import PokemonChess1 from "../public/PokemonChessImage1.png";
 import AlgoVisualizer1 from "../public/AlgoVisualizerImage1.png";
 import ReviewHub1 from "../public/ReviewHubImage1.png";
 import Ocular1 from "../public/OcularImage1.png"
+import CodeSyncImage from "../public/CodeSyncImage.png"
 import frameworks from "../public/frameworks.png";
 import languages from "../public/languages.png";
 import tools from "../public/tools.png";
@@ -99,7 +100,21 @@ const projects = [
     "Implemented K-Means clustering to differentiate between healthy and diseased eyes, achieving up to 60% accuracy.",
     "Developed supervised learning models using CNN architectures like ResNet50 and Xception, reaching over 50% accuracy with improved hyperparameter tuning and data augmentation."
   ]
-  }
+  },
+  {
+    "title": "CodeSync",
+    "description": "A collaborative real-time code editor with AI-powered hints.",
+    "image": CodeSyncImage, 
+    "deployedLink": "https://codespace-6399.onrender.com",
+    "repoLink": "https://github.com/dexon888/codespace",
+    "detailedDescription": "CodeSync is a real-time collaborative coding platform designed to enhance pair programming and code sharing experiences.",
+    "points": [
+      "Developed a real-time collaborative code editor using React for the front end and Node.js for the back end, allowing users to code together seamlessly on Leetcode problems.",
+      "Integrated AI-powered hints using the OpenAI API, providing users with on-demand assistance and improving problem-solving efficiency.",
+      "Implemented real-time synchronization and collaboration features with Socket.io, supporting multiple concurrent users in a single coding session.",
+      "Optimized data handling with Apollo GraphQL and Express.js, ensuring efficient and secure communication between the front end and back end.",
+    ]
+}
 ];
 
 const skills = {
