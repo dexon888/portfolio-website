@@ -4,8 +4,9 @@ import NavBar from "./components/NavBar";
 import HeroSection from "./components/HeroSection";
 import ContactForm from "./components/ContactForm";
 import Portfolio from './components/Portfolio';
-import Image from "next/image";
+import Skills from './components/Skills';  // Import the new Skills component
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 import NeuroMosaic2 from "../public/NeuroMosaicImage2.png";
 import ChirpChat1 from "../public/ChirpChatImage1.png";
@@ -134,6 +135,12 @@ const skills = {
   Tools: ["Visual Studio Code", "Jira", "Postman", "Figma"]
 };
 
+const images = {
+  languages,
+  frameworks,
+  tools,
+};
+
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
   const [visibleTooltips, setVisibleTooltips] = useState({});
@@ -177,7 +184,6 @@ export default function Home() {
           <HeroSection />
         </section>
 
-        {/* Bio Section */}
         <motion.section 
           id="bio"
           initial={{ opacity: 0, y: 20 }}
@@ -193,56 +199,8 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* Skills Section */}
-        <motion.section 
-          id="skills" 
-          className="pt-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ amount: 0.2 }}
-        >
-          <div className="lg:flex gap-10">
-            <motion.div 
-              className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
-              whileHover={{ scale: 1.1 }}
-            >
-              <Image src={languages} alt="Languages" width={100} height={100} />
-              <h3 className="text-lg font-medium pt-8 pb-2">Languages & Tools</h3>
-              <ul className="py-2">
-                {skills.Languages.concat(skills.Tools).map((skill, index) => (
-                  <li key={index} className="text-gray-800 py-1 dark:text-gray-600">{skill}</li>
-                ))}
-              </ul>
-            </motion.div>
-            <motion.div 
-              className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
-              whileHover={{ scale: 1.1 }}
-            >
-              <Image src={frameworks} alt="Frameworks" width={100} height={100} />
-              <h3 className="text-lg font-medium pt-8 pb-2">Frameworks & Libraries</h3>
-              <ul className="py-2">
-                {skills.Frameworks.concat(skills.Libraries).map((skill, index) => (
-                  <li key={index} className="text-gray-800 py-1 dark:text-gray-600">{skill}</li>
-                ))}
-              </ul>
-            </motion.div>
-            <motion.div 
-              className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1"
-              whileHover={{ scale: 1.1 }}
-            >
-              <Image src={tools} alt="Technologies & APIs" width={100} height={100} />
-              <h3 className="text-lg font-medium pt-8 pb-2">Technologies & APIs</h3>
-              <ul className="py-2">
-                {skills.Technologies.concat(skills["APIs and Protocols"]).map((skill, index) => (
-                  <li key={index} className="text-gray-800 py-1 dark:text-gray-600">{skill}</li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
-        </motion.section>
+        <Skills skills={skills} images={images} />  {/* Abstracted Skills component */}
 
-        {/* Portfolio Section - Moved to Portfolio Component */}
         <Portfolio 
           projects={projects} 
           visibleTooltips={visibleTooltips} 
@@ -250,7 +208,6 @@ export default function Home() {
           handleMouseLeave={handleMouseLeave} 
         />
 
-        {/* Contact Form Section */}
         <motion.section 
           id="contact" 
           className="py-10"
